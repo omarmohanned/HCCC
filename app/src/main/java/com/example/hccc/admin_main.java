@@ -26,7 +26,7 @@ public class admin_main extends AppCompatActivity {
         start_sign_up = findViewById(R.id.start_sign_up);
         log_out = findViewById(R.id.log_out);
 
-//////spinner
+        //////spinner
         String[] users1 = {"select user type", "pharmacist", "Doctor", "Nurse", "Technician"};
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_activated_1, users1);
@@ -34,7 +34,7 @@ public class admin_main extends AppCompatActivity {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
         user_type.setAdapter(arrayAdapter);
-//////////
+        //////////
         start_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

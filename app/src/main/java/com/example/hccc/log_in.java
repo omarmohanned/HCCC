@@ -62,7 +62,6 @@ public class log_in extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-                                    firebaseUser.getUid();
                                     databaseReference.child("users").child(firebaseUser.getUid()).child("work").addValueEventListener(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {

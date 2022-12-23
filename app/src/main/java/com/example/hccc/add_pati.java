@@ -26,7 +26,7 @@ public class add_pati extends AppCompatActivity {
     private RadioGroup smoker, gender;
     private Button add;
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,databaseReference_nat;
     private FirebaseUser firebaseUser;
     String gender1, smoker1;
 
@@ -49,6 +49,7 @@ public class add_pati extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference_nat=FirebaseDatabase.getInstance().getReference();
         ////////
 
         gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -87,6 +88,11 @@ public class add_pati extends AppCompatActivity {
                                 databaseReference.child("pat").child(firebaseUser.getUid()).child("balance").setValue("10");
                                 /////////////////
                                 databaseReference.child("all_pat").child("fullname").child(name.getText().toString()).setValue(name.getText().toString());
+                                databaseReference_nat.child("pat_nat").child(national.getText().toString()).child("nat").setValue(national.getText().toString());
+                                databaseReference_nat.child("pat_nat").child(national.getText().toString()).child("uid").setValue(firebaseUser.getUid().toString());
+
+
+                                ////////////
                                 databaseReference.child("users").child(firebaseUser.getUid()).child("work").setValue("pat");
 
                             }

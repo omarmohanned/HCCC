@@ -28,6 +28,7 @@
                 />
 
             <SearchView
+                android:id="@+id/search_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -43,11 +44,113 @@
                 android:gravity="center"
                 android:layout_margin="15dp"/>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="544dp"
-                android:id="@+id/rec_view"
-                />
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp"
+                         />
+
+                    <TextView
+                        android:id="@+id/age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <EditText
+                        android:id="@+id/age_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <TextView
+                        android:id="@+id/balance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <TextView
+                        android:id="@+id/chronic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <EditText
+                        android:id="@+id/chronic_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp"/>
+
+                    <TextView
+                        android:id="@+id/national"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/smoker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <EditText
+                        android:id="@+id/smoker_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <Button
+                        android:id="@+id/update_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Update Information"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:layout_margin="15dp"/>
+                </LinearLayout>
+            </ScrollView>
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
