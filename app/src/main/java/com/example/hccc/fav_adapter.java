@@ -34,10 +34,9 @@ import java.util.Locale;
 public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholder> {
     private Context mcontext;
     private List<retrieve_doctor_list> mlist;
-
     int balance;
 
-    private DatabaseReference firebaseDatabase, databaseReference2, databaseReference3;
+    private DatabaseReference databaseReference3, firebaseDatabase;
     private FirebaseUser firebaseUser;
 
     public fav_adapter(Context mcontext, List<retrieve_doctor_list> mlist) {
@@ -57,10 +56,13 @@ public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholde
     public void onBindViewHolder(@NonNull final imageviewholder holder, int position) {
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
         final retrieve_doctor_list ret_bind = mlist.get(position);
+
         firebaseDatabase = FirebaseDatabase.getInstance().getReference();
-        databaseReference2 = FirebaseDatabase.getInstance().getReference();
+
         databaseReference3 = FirebaseDatabase.getInstance().getReference();
+
         holder.full_name.setText(ret_bind.getFull_name());
         holder.major.setText(ret_bind.getMajor());
         holder.phone.setText(ret_bind.getPhone());
@@ -69,7 +71,7 @@ public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholde
             public void onClick(View view) {
                 Toast.makeText(mcontext, "do you want to book an appointment??", Toast.LENGTH_SHORT).show();
                 final AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
-                alert.setTitle("confirmation");
+                alert.setTitle("confirmation??");
                 alert.setMessage("do you want to book an appointment??");
                 alert.setCancelable(false);
                 alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
@@ -80,6 +82,19 @@ public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholde
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 balance = Integer.parseInt(snapshot.getValue(String.class));
+                                if (balance == 0) {
+                                    Snackbar.make(view, "no enough balance", Snackbar.LENGTH_LONG).show();
+
+
+                                } else {
+                                    Toast.makeText(mcontext, firebaseUser.getUid() + balance, Toast.LENGTH_LONG).show();
+                                    databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("name").setValue(ret_bind.getFull_name());
+                                    databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("major").setValue(ret_bind.getMajor());
+                                    databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("phone").setValue(ret_bind.getPhone());
+                                    databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("uid").setValue(ret_bind.getUid());
+                                    databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("email").setValue(ret_bind.getEmail());
+
+                                }
                             }
 
                             @Override
@@ -87,16 +102,6 @@ public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholde
 
                             }
                         });
-                        if (balance==0) {
-                            Snackbar.make(view, "no enough balance", Snackbar.LENGTH_LONG).show();
-                        } else {
-                            databaseReference2.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("name").child(ret_bind.getFull_name());
-                            databaseReference2.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("major").child(ret_bind.getMajor());
-                            databaseReference2.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("phone").child(ret_bind.getPhone());
-                            databaseReference2.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("uid").child(ret_bind.getUid());
-                            databaseReference2.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("email").child(ret_bind.getEmail());
-
-                        }
 
 
                     }

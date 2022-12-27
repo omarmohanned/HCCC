@@ -11,16 +11,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="244dp"
-            android:layout_height="92dp"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="307dp"
+            android:layout_height="246dp"
             android:layout_gravity="center"
-            android:layout_margin="50dp"
-            android:gravity="center"
-            android:text="LOG IN"
-            android:textColor="@color/red"
-            android:textSize="25dp" />
+            android:background="@drawable/logo" />
 
         <EditText
             android:id="@+id/email"
@@ -28,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:ems="10"
+            android:textStyle="bold"
             android:hint="Enter your Email"
             android:inputType="textPersonName" />
 
@@ -37,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:ems="10"
+            android:textStyle="bold"
             android:hint="Enter password"
             android:inputType="textPassword" />
 
