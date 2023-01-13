@@ -35,6 +35,16 @@
                 android:textSize="15dp"
                 android:layout_margin="15dp"
                 />
+
+            <Button
+                android:id="@+id/doctor_Appointment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="doctor Appointment"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:layout_margin="15dp"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
