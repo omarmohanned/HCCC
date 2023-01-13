@@ -23,7 +23,7 @@ public class pat_main extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FirebaseUser firebaseUser;
     private TextView welcome;
-    private Button view_doctor, doctor_Appointment, tre;
+    private Button view_doctor, doctor_Appointment,out;
 
 
     @SuppressLint("MissingInflatedId")
@@ -34,12 +34,20 @@ public class pat_main extends AppCompatActivity {
         welcome = findViewById(R.id.welcome);
         view_doctor = findViewById(R.id.view_doctor);
         doctor_Appointment = findViewById(R.id.doctor_Appointment);
-        tre = findViewById(R.id.tre);
+        out = findViewById(R.id.out);
         ////////////
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         ////////
+        out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
+            }
+        });
         databaseReference.child("pat").child(firebaseUser.getUid()).child("name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -65,11 +73,6 @@ public class pat_main extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), view_doctor_pat.class));
             }
         });
-        tre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-startActivity(new Intent(getApplicationContext(), tre.class));
-            }
-        });
+
     }
 }

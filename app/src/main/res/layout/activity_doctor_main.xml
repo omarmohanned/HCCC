@@ -6,4 +6,160 @@
     android:layout_height="match_parent"
     tools:context=".doctor_main">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search for Patients"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="15dp"
+                android:textSize="20dp"
+
+                />
+
+            <SearchView
+                android:id="@+id/search_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+            </SearchView>
+
+            <Button
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Search"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="15dp"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <EditText
+                        android:id="@+id/age_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <TextView
+                        android:id="@+id/balance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <TextView
+                        android:id="@+id/chronic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <EditText
+                        android:id="@+id/chronic_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp"/>
+
+                    <TextView
+                        android:id="@+id/national"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/smoker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <EditText
+                        android:id="@+id/smoker_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_margin="15dp" />
+
+                    <Button
+                        android:id="@+id/update_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Update Information"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:layout_margin="15dp"/>
+
+                    <Button
+                        android:id="@+id/write_pre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="write the prescription"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:layout_margin="15dp"/>
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

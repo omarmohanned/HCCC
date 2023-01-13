@@ -28,6 +28,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -35,6 +39,7 @@ public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholde
     private Context mcontext;
     private List<retrieve_doctor_list> mlist;
     int balance;
+    boolean numm;
 
     private DatabaseReference databaseReference3, firebaseDatabase;
     private FirebaseUser firebaseUser;
@@ -63,6 +68,7 @@ public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholde
 
         databaseReference3 = FirebaseDatabase.getInstance().getReference();
 
+
         holder.full_name.setText(ret_bind.getFull_name());
         holder.major.setText(ret_bind.getMajor());
         holder.phone.setText(ret_bind.getPhone());
@@ -77,22 +83,38 @@ public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholde
                 alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        firebaseDatabase.child("pat").child(firebaseUser.getUid()).child("numoftimes").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                numm=snapshot.getValue(Boolean.class);
+                            }
 
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                         databaseReference3.child("pat").child(firebaseUser.getUid()).child("balance").addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 balance = Integer.parseInt(snapshot.getValue(String.class));
-                                if (balance == 0) {
-                                    Snackbar.make(view, "no enough balance", Snackbar.LENGTH_LONG).show();
+                                if (balance == 0 ||numm==false) {
+                                    Snackbar.make(view, "cany book apooinmnet", Snackbar.LENGTH_LONG).show();
 
 
                                 } else {
+                                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+                                    Date date = new Date(System.currentTimeMillis());
                                     Toast.makeText(mcontext, firebaseUser.getUid() + balance, Toast.LENGTH_LONG).show();
                                     databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("name").setValue(ret_bind.getFull_name());
                                     databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("major").setValue(ret_bind.getMajor());
                                     databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("phone").setValue(ret_bind.getPhone());
                                     databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("uid").setValue(ret_bind.getUid());
                                     databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("email").setValue(ret_bind.getEmail());
+                                    databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("pre_trea").setValue("res and tra");
+                                    databaseReference3.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("time").setValue(formatter.format(date));
+                                    databaseReference3.child("pat").child(firebaseUser.getUid()).child("numoftimes").setValue(true);
+
 
                                 }
                             }
@@ -139,111 +161,6 @@ public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholde
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //made by omar mohanned

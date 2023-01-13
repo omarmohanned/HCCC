@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ public class doctor_Appointment extends AppCompatActivity {
     private FirebaseUser firebaseUser;
     private TextView NAME, PHONE, MAJOR, EMAIL;
     String nat;
+    private Button tre;
 
 
     @SuppressLint("MissingInflatedId")
@@ -39,7 +41,14 @@ public class doctor_Appointment extends AppCompatActivity {
         PHONE = findViewById(R.id.PHONE);
         MAJOR = findViewById(R.id.MAJOR);
         EMAIL = findViewById(R.id.EMAIL);
+        tre = findViewById(R.id.tre);
         ////////
+        tre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), tre.class));
+            }
+        });
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference1 = FirebaseDatabase.getInstance().getReference();

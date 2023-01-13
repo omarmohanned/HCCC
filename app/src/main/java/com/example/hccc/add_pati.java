@@ -86,6 +86,7 @@ public class add_pati extends AppCompatActivity {
                                 databaseReference.child("pat").child(firebaseUser.getUid()).child("smoker").setValue(smoker1);
                                 databaseReference.child("pat").child(firebaseUser.getUid()).child("chronic").setValue(chronic.getText().toString());
                                 databaseReference.child("pat").child(firebaseUser.getUid()).child("balance").setValue("10");
+                                databaseReference.child("pat").child(firebaseUser.getUid()).child("numoftimes").setValue(false);
                                 /////////////////
                                 databaseReference.child("all_pat").child("fullname").child(name.getText().toString()).setValue(name.getText().toString());
                                 databaseReference_nat.child("pat_nat").child(national.getText().toString()).child("nat").setValue(national.getText().toString());

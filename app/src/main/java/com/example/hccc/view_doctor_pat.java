@@ -50,7 +50,7 @@ public class view_doctor_pat extends AppCompatActivity {
 
                 }
                 fav_adapter = new fav_adapter(view_doctor_pat.this, retrieve_doctor_list);
-                doctor.setAdapter(fav_adapter);
+                doctor.setAdapter(                  fav_adapter);
 
             }
 
