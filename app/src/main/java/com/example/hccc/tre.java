@@ -17,12 +17,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class tre extends AppCompatActivity {
-    private EditText trea;
+    private TextView trea;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference, databaseReference1;
     private FirebaseUser firebaseUser;
-    private TextView NAME, PHONE, MAJOR, EMAIL;
-    String nat;
 
     @SuppressLint("MissingInflatedId")
     @Override

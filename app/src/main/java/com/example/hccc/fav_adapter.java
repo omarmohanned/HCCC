@@ -98,7 +98,7 @@ public class fav_adapter extends RecyclerView.Adapter<fav_adapter.imageviewholde
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 balance = Integer.parseInt(snapshot.getValue(String.class));
-                                if (balance == 0 ||numm==false) {
+                                if (balance == 0 ||numm==true) {
                                     Snackbar.make(view, "cany book apooinmnet", Snackbar.LENGTH_LONG).show();
 
 
