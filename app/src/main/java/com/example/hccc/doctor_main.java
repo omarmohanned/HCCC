@@ -68,7 +68,15 @@ public class doctor_main extends AppCompatActivity {
         write_pre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),voice_doctor.class));
+                if (nat.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "empty uid", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent send = new Intent(doctor_main.this, voice_doctor.class);
+                    send.putExtra("uid_pat", nat);
+
+                    startActivity(send);
+                }
+
             }
         });
         update_info.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +110,7 @@ public class doctor_main extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         nat = snapshot.getValue(String.class);
                         Toast.makeText(getApplicationContext(), nat, Toast.LENGTH_LONG).show();
+
 
                         databaseReference1.child("pat").child(nat).child("age").addValueEventListener(new ValueEventListener() {
                             @Override

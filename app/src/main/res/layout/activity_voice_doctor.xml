@@ -8,17 +8,19 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/report"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_width="328dp"
+                android:layout_height="194dp"
                 android:layout_gravity="center"
                 android:layout_margin="25dp"
                 android:gravity="left|bottom"
@@ -26,21 +28,21 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_baseline_record_voice_over_24"
-                android:layout_gravity="center"
+                android:layout_width="318dp"
+                android:layout_height="99dp"
+                android:layout_gravity="left"
                 android:layout_margin="25dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                app:srcCompat="@drawable/ic_baseline_record_voice_over_24" />
 
             <Button
                 android:id="@+id/upload"
-                android:layout_width="match_parent"
+                android:layout_width="324dp"
                 android:layout_height="wrap_content"
-                android:text="upload"
                 android:layout_gravity="center"
                 android:layout_margin="25dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="upload" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

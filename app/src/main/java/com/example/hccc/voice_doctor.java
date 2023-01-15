@@ -28,6 +28,7 @@ public class voice_doctor extends AppCompatActivity {
     private ImageView imageView2;
     private EditText report;
     private static final int REQUEST_CODE_SPEECH_INPUT = 1000;
+    String rec_pat;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -68,9 +69,11 @@ public class voice_doctor extends AppCompatActivity {
         switch (requestCode) {
             case REQUEST_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
+                    Bundle EXTRA=getIntent().getExtras();
+                    rec_pat=EXTRA.getString("uid_pat");
                     ArrayList<String> result=data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     report.setText(result.get(0));
-                    databaseReference.child("pat").child(firebaseUser.getUid()).child("doctor_res").child("pre_trea").setValue(result.get(0));
+                    databaseReference.child("pat").child(rec_pat).child("doctor_res").child("pre_trea").setValue(result.get(0));
                 }
 
             }
