@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class pharma_main extends AppCompatActivity {
     private TextView pharma_name;
-    private Button add, show,sign_out;
+    private Button add, show, sign_out;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
     private FirebaseUser firebaseUser;
@@ -58,6 +58,12 @@ public class pharma_main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), add_med.class));
+            }
+        });
+        show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), all_med.class));
             }
         });
         sign_out.setOnClickListener(new View.OnClickListener() {
