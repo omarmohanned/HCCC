@@ -85,6 +85,9 @@ public class pati_list extends AppCompatActivity {
                     chronic_update.setHint("Update your  chronic");
                     smoker_update.setHint("Update your smoker status");
 
+                    databaseReference.child("pat").child(nat).child("age").setValue(age_update.getText().toString());
+                    databaseReference.child("pat").child(nat).child("chronic").setValue(chronic_update.getText().toString());
+                    databaseReference.child("pat").child(nat).child("smoker").setValue(smoker_update.getText().toString());
                 }
             }
         });
